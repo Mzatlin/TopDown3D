@@ -5,19 +5,25 @@ using UnityEngine;
 
 public class EntryNode : MonoBehaviour, INode{
     public event Action OnEnter = delegate { };
-
-    // Use this for initialization
+    public GameObject player;
+    //Use this for initialization
     void Start () {
-		
+     //Transfer();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-   public void Transfer()
+   public void Transferplayer()
     {
-        throw new NotImplementedException();
+        player.transform.parent = transform;
+       // player.GetCompoent<Rigidbody>().enabled = false;
+        player.transform.position = transform.position;
+    }
+    public void Relinquishplayer()
+    {
+        player.transform.parent = null;
     }
 
 
